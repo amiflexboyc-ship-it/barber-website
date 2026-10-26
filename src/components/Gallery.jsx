@@ -1,46 +1,46 @@
 import React, { useState } from 'react';
 import { Camera, ZoomIn, X, Scissors, ArrowRight, Sparkles } from 'lucide-react';
-import haircut1 from '../assets/haircut1.jpg';
-import haircut2 from '../assets/haircut2.jpg';
-import barber1 from '../assets/barber1.jpg';
-import barber2 from '../assets/barber2.jpg';
+import galleryCrispLineup from '../assets/gallery_crisp_lineup.jpg';
+import galleryWavesCut from '../assets/gallery_waves_cut.jpg';
+import galleryFadeTaper from '../assets/gallery_fade_taper.jpg';
+import galleryBarberLaugh from '../assets/gallery_barber_laugh.jpg';
 
 export const GALLERY_ITEMS = [
   {
     id: 1,
-    image: haircut1,
-    title: 'Mid Skin Fade & Textured Pompadour',
+    image: galleryCrispLineup,
+    title: 'Razor-Sharp Edge Up & Clean Lineup',
     category: 'fades',
-    tag: 'Signature Cut',
-    barber: 'Marcus Vance',
-    description: 'Seamless low-to-skin transition with a hand-sculpted textured crown and sharp temple lines.',
+    tag: 'Surgical Precision',
+    barber: 'Adetech',
+    description: 'Micro-calibrated trimmer hairline detailing, crisp sharp temple boxes, and flawless forehead alignment.',
   },
   {
     id: 2,
-    image: haircut2,
-    title: 'Executive Side Part & Clean Taper',
+    image: galleryWavesCut,
+    title: '360 Waves Scissor Trim & Temple Taper',
     category: 'classic',
-    tag: 'Executive Choice',
-    barber: 'Julian Rossi',
-    description: 'Crisp scissor-sculpted side parting with tapered neckline and blended natural facial stubble.',
+    tag: 'Signature Wave Flow',
+    barber: 'Adetech',
+    description: 'Scissor-over-comb depth calibration on deep 360 spinning waves paired with a blended low taper and sharp edges.',
   },
   {
     id: 3,
-    image: barber2,
-    title: 'Precision Clipper & Beard Alignment',
-    category: 'beards',
-    tag: 'Beard Sculpt',
-    barber: 'Julian Rossi',
-    description: 'Geometric cheek razor lining with balanced beard weight debulking and hot eucalyptus steam.',
+    image: galleryFadeTaper,
+    title: 'Precision Low Skin Fade & Crown Sculpt',
+    category: 'fades',
+    tag: 'Master Fades',
+    barber: 'Adetech',
+    description: 'High-contrast seamless skin transition, textured crown balancing, and hand-sculpted beard integration.',
   },
   {
     id: 4,
-    image: barber1,
-    title: 'Master Scissor Styling Session',
-    category: 'classic',
-    tag: 'Parlour Craft',
-    barber: 'Marcus Vance',
-    description: 'Old-world scissor-over-comb craftsmanship inside our bespoke private lounge chairs.',
+    image: galleryBarberLaugh,
+    title: 'The Premium Salon Experience & VIP Cut',
+    category: 'experience',
+    tag: 'VIP Patron Vibe',
+    barber: 'Adetech',
+    description: 'World-class grooming atmosphere with expert styling, good vibes, steaming hot towel treatment, and luxury service.',
   },
 ];
 
@@ -86,10 +86,10 @@ export default function Gallery({ onSelectStyle }) {
           }}
         >
           {[
-            { id: 'all', label: 'All Work' },
-            { id: 'fades', label: 'Skin Fades & Crops' },
-            { id: 'classic', label: 'Executive & Classic' },
-            { id: 'beards', label: 'Beard Alignments' },
+            { id: 'all', label: 'All Portfolio' },
+            { id: 'fades', label: 'Skin Fades & Lineups' },
+            { id: 'classic', label: '360 Waves & Scissor Cuts' },
+            { id: 'experience', label: 'Salon Vibe & VIP' },
           ].map((cat) => (
             <button
               key={cat.id}

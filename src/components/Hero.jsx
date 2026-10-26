@@ -1,6 +1,6 @@
 import React from 'react';
 import { Calendar, ArrowRight, Star, ShieldCheck, Scissors, Award } from 'lucide-react';
-import adetechImg from '../assets/adetech.png';
+import heroBarber from '../assets/hero_barber.jpg';
 import barber1 from '../assets/barber1.jpg';
 
 export default function Hero({ onBookNow, onExploreServices }) {
@@ -148,7 +148,7 @@ export default function Hero({ onBookNow, onExploreServices }) {
               }}
             >
               <img
-                src={adetechImg}
+                src={heroBarber}
                 alt="Adetech Barbing - Master Craftsman & Head Barber"
                 style={{
                   width: '100%',
@@ -218,7 +218,7 @@ export default function Hero({ onBookNow, onExploreServices }) {
               }}
             >
               <img
-                src={adetechImg}
+                src={heroBarber}
                 alt="Adetech Lead Barber"
                 style={{
                   width: 48,
