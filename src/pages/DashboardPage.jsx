@@ -652,7 +652,7 @@ export default function DashboardPage({ currentUser, onNavigate, onLogout, onUpd
                             Craftsman: <strong style={{ color: '#fff' }}>{b.barber?.name || 'Marcus Sterling'}</strong>
                           </span>
                           <span>
-                            Fee: <strong style={{ color: 'var(--gold-light)' }}>${b.service?.price || 50}.00</strong>
+                            Fee: <strong style={{ color: 'var(--gold-light)' }}>₦{(b.service?.price || 7000).toLocaleString()}</strong>
                           </span>
                         </div>
                       </div>
@@ -755,7 +755,7 @@ export default function DashboardPage({ currentUser, onNavigate, onLogout, onUpd
                         {b.service?.title}
                       </h4>
                       <p style={{ fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.75rem' }}>
-                        With {b.barber?.name} • ${b.service?.price}
+                        With {b.barber?.name} • ₦{(b.service?.price || 7000).toLocaleString()}
                       </p>
 
                       {b.status === 'Completed' && (

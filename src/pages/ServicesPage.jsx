@@ -6,25 +6,25 @@ export default function ServicesPage({ onNavigate, onSelectService }) {
   const memberships = [
     {
       name: 'The Silver Blade Club',
-      price: 85,
+      price: 25000,
       period: '/ month',
       features: [
         '2 Tailored Haircuts per month',
         'Complimentary Neck & Temple Cleanups anytime',
         '10% off all retail apothecary grooming products',
-        'Complimentary craft beer or espresso',
+        'Complimentary craft beverage or espresso',
       ],
       popular: false,
     },
     {
       name: 'The Master Gentleman Guild',
-      price: 145,
+      price: 50000,
       period: '/ month',
       features: [
         'Unlimited Haircuts & Fade Maintenance',
         'Bi-weekly Royal Hot Towel Shave or Beard Sculpt',
         'Priority same-day chair reservations',
-        'Private locker & complimentary top-shelf whiskey',
+        'Private locker & complimentary VIP refreshments',
         '1 Guest Pass per month for a friend',
       ],
       popular: true,
@@ -118,7 +118,7 @@ export default function ServicesPage({ onNavigate, onSelectService }) {
 
                 <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.3rem', marginBottom: '1.75rem' }}>
                   <span style={{ fontSize: '2.5rem', fontFamily: 'var(--font-serif)', fontWeight: 800, color: 'var(--gold-light)' }}>
-                    ${m.price}
+                    ₦{m.price.toLocaleString()}
                   </span>
                   <span style={{ color: 'var(--text-muted)', fontSize: '0.9rem' }}>{m.period}</span>
                 </div>

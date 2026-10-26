@@ -1,32 +1,58 @@
 import React from 'react';
 import { Star, Award, Scissors, Calendar, CheckCircle2 } from 'lucide-react';
-import barber1 from '../assets/barber1.jpg';
-import barber2 from '../assets/barber2.jpg';
+import heroBarber from '../assets/hero_barber.jpg';
+import galleryFadeTaper from '../assets/gallery_fade_taper.jpg';
+import galleryWavesCut from '../assets/gallery_waves_cut.jpg';
+import galleryCrispLineup from '../assets/gallery_crisp_lineup.jpg';
 
 export const BARBERS_DATA = [
   {
-    id: 'marcus-vance',
-    name: 'Marcus Vance',
-    role: 'Founder & Master Craftsman',
-    image: barber1,
-    experience: '14+ Years Experience',
+    id: 'adedayo',
+    name: 'Adedayo',
+    role: 'Founder & Head Barber',
+    image: heroBarber,
+    experience: '12+ Years Experience',
     rating: '5.0',
-    reviewsCount: 520,
-    specialties: ['Japanese Shear Sculpting', 'Traditional Straight Razor Shaves', 'Executive Restyling'],
-    schedule: 'Mon - Thu • 9:00 AM - 6:00 PM',
-    bio: 'Former senior educator for European barber guilds, Marcus combines vintage precision with effortless modern styling.',
+    reviewsCount: 680,
+    specialties: ['Signature 360 Wave Sculpting', 'VIP Patron Consultation', 'Precision Straight Razor Shaves'],
+    schedule: 'Mon - Sat • 9:00 AM - 7:00 PM',
+    bio: 'Founder and lead craftsman at Adetech Barbing. Dedicated to perfection, surgical lines, and the ultimate VIP lounge experience.',
   },
   {
-    id: 'julian-rossi',
-    name: 'Julian Rossi',
-    role: 'Senior Fade & Beard Director',
-    image: barber2,
-    experience: '9+ Years Experience',
+    id: 'samuel',
+    name: 'Samuel',
+    role: 'Senior Fade & Taper Specialist',
+    image: galleryFadeTaper,
+    experience: '8+ Years Experience',
     rating: '4.9',
-    reviewsCount: 380,
-    specialties: ['Zero-Gap Skin Fades', 'Artisan Beard Sculpting', 'Textured Crop Dynamics'],
-    schedule: 'Tue - Sat • 10:00 AM - 8:00 PM',
-    bio: 'Renowned for surgical fade gradients and razor sharp beard alignments, Julian ensures every contour flatters your bone structure.',
+    reviewsCount: 420,
+    specialties: ['Zero-Gap Skin Fades', 'Low & Mid Tapers', 'Beard Blending & Color Restoration'],
+    schedule: 'Mon - Fri • 9:30 AM - 8:00 PM',
+    bio: 'Renowned for seamless fade gradients, balanced crown transitions, and clean neck detailing that lasts.',
+  },
+  {
+    id: 'james',
+    name: 'James',
+    role: 'Master Wave & Scissor Stylist',
+    image: galleryWavesCut,
+    experience: '7+ Years Experience',
+    rating: '4.9',
+    reviewsCount: 350,
+    specialties: ['360 Wave Depth Calibrations', 'Scissor-Over-Comb Texturing', 'Hot Towel Beard Alignment'],
+    schedule: 'Tue - Sun • 10:00 AM - 7:30 PM',
+    bio: 'Specialist in wave architecture, shear balance, and preserving hair health with bespoke botanical tonics.',
+  },
+  {
+    id: 'olaoluwa',
+    name: 'Olaoluwa',
+    role: 'Precision Lineup & Beard Director',
+    image: galleryCrispLineup,
+    experience: '6+ Years Experience',
+    rating: '4.9',
+    reviewsCount: 310,
+    specialties: ['Crisp Razor Lineups', 'Geometric Temple Boxes', 'Full Beard Shaping & Trims'],
+    schedule: 'Wed - Sun • 9:00 AM - 6:30 PM',
+    bio: 'Surgical precision with trimmers and razors, ensuring clean 90-degree lines and sharp, camera-ready hairlines.',
   },
 ];
 
@@ -58,9 +84,9 @@ export default function Barbers({ onBookWithBarber }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(340px, 1fr))',
-            gap: '2.5rem',
-            maxWidth: '1000px',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
+            gap: '2rem',
+            maxWidth: '1200px',
             margin: '0 auto',
           }}
         >

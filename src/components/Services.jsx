@@ -6,7 +6,7 @@ export const SERVICES_DATA = [
     id: 'skin-fade',
     title: 'The Signature Skin Fade',
     category: 'haircut',
-    price: 48,
+    price: 7000,
     duration: '45 mins',
     popular: true,
     description: 'Precision clipper and foil fade blended down to skin, bespoke shear-work on top, straight razor neck cleanup, and styled with premium matte clay.',
@@ -14,19 +14,19 @@ export const SERVICES_DATA = [
   },
   {
     id: 'classic-gentleman',
-    title: 'Executive Scissor Cut',
+    title: 'Executive Scissor Cut & Waves',
     category: 'haircut',
-    price: 44,
+    price: 6000,
     duration: '40 mins',
     popular: false,
-    description: 'Traditional scissor-over-comb hand cut tailored to natural part lines and texture. Ideal for medium-to-long gentleman cuts.',
-    includes: ['Deep cleansing shampoo & rinse', 'Precision scissor architecture', 'Blowdry & volume structuring', 'Finishing product application'],
+    description: 'Traditional scissor-over-comb hand cut tailored to natural part lines and texture. Ideal for wave sculpting and gentleman cuts.',
+    includes: ['Deep cleansing shampoo & rinse', 'Precision scissor architecture', 'Blowdry & volume structuring', 'Finishing wave butter application'],
   },
   {
     id: 'hot-towel-shave',
     title: 'Royal Straight Razor Shave',
     category: 'shave',
-    price: 42,
+    price: 5000,
     duration: '35 mins',
     popular: true,
     description: 'The quintessential barbershop ritual. Steaming hot eucalyptus towels, warm lather massage, surgical straight razor shave, and cold towel close.',
@@ -36,7 +36,7 @@ export const SERVICES_DATA = [
     id: 'beard-sculpt',
     title: 'Artisan Beard Sculpt & Lineup',
     category: 'shave',
-    price: 36,
+    price: 4000,
     duration: '30 mins',
     popular: false,
     description: 'Comprehensive beard shaping, mustache contouring, cheek and throat straight razor alignment, finished with conditioning argan oil.',
@@ -46,7 +46,7 @@ export const SERVICES_DATA = [
     id: 'royal-overhaul',
     title: 'The Royal Parlour Overhaul',
     category: 'packages',
-    price: 85,
+    price: 18000,
     duration: '75 mins',
     popular: true,
     description: 'Our ultimate luxury experience. Full signature haircut, artisan beard sculpt or royal shave, invigorating scalp massage, and complimentary scotch.',
@@ -56,7 +56,7 @@ export const SERVICES_DATA = [
     id: 'father-son',
     title: 'The Heir & Patriarch Combo',
     category: 'packages',
-    price: 78,
+    price: 14000,
     duration: '60 mins',
     popular: false,
     description: 'Dual side-by-side appointments for father and son. Two tailored haircuts, complimentary beverages, and memories in the barber chair.',
@@ -182,8 +182,8 @@ export default function Services({ onSelectService, onViewAllServices }) {
               </div>
 
               <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1.25rem' }}>
-                <span style={{ fontSize: '2rem', fontFamily: 'var(--font-serif)', fontWeight: 800, color: 'var(--gold-light)' }}>
-                  ${service.price}
+                <span style={{ fontSize: '1.8rem', fontFamily: 'var(--font-serif)', fontWeight: 800, color: 'var(--gold-light)' }}>
+                  ₦{service.price.toLocaleString()}
                 </span>
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.35rem', color: 'var(--text-muted)', fontSize: '0.85rem' }}>
                   <Clock size={14} /> {service.duration}

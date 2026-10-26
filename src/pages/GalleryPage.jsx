@@ -4,20 +4,8 @@ import Gallery from '../components/Gallery.jsx';
 
 export default function GalleryPage({ onNavigate, onSelectStyle }) {
   return (
-    <div className="page-wrapper" style={{ padding: '4rem 0 6rem 0' }}>
+    <div className="page-wrapper" style={{ padding: '2rem 0 6rem 0' }}>
       <div className="container">
-        <div style={{ textAlign: 'center', maxWidth: '750px', margin: '0 auto 3rem auto' }}>
-          <div className="section-tag">
-            <Camera size={14} /> The Visual Archive
-          </div>
-          <h1 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 800, marginBottom: '1.25rem' }}>
-            Artistry & Precision <span className="gradient-gold-text">In Every Angle</span>
-          </h1>
-          <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: 1.7 }}>
-            Explore our curated lookbook of custom skin fades, bespoke scissor shaping, executive tapers,
-            and razor-honed beard lines created by our master craftsmen.
-          </p>
-        </div>
 
         {/* Gallery Component */}
         <Gallery

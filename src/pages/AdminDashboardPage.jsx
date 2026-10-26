@@ -438,7 +438,7 @@ export default function AdminDashboardPage({ currentUser, onNavigate, onLogout }
               <DollarSign size={18} color="var(--gold-light)" />
             </div>
             <div style={{ fontSize: '1.6rem', fontWeight: 800, color: 'var(--gold-light)', fontFamily: 'var(--font-serif)' }}>
-              ${analytics.totalRevenue}.00
+              ₦{analytics.totalRevenue.toLocaleString()}
             </div>
             <div style={{ fontSize: '0.75rem', color: '#10b981', display: 'flex', alignItems: 'center', gap: '0.3rem', marginTop: '0.25rem' }}>
               <TrendingUp size={12} /> From all confirmed chairs
@@ -623,7 +623,7 @@ export default function AdminDashboardPage({ currentUser, onNavigate, onLogout }
                           {b.status || 'Confirmed'}
                         </span>
                         <span style={{ fontWeight: 800, color: 'var(--gold-light)', fontSize: '0.95rem' }}>
-                          ${b.service?.price || 48}
+                          ₦{(b.service?.price || 7000).toLocaleString()}
                         </span>
                       </div>
                     </div>
@@ -910,7 +910,7 @@ export default function AdminDashboardPage({ currentUser, onNavigate, onLogout }
                         {b.time}
                       </div>
                       <div style={{ color: '#fff', fontWeight: 800, fontSize: '0.95rem' }}>
-                        ${b.service?.price || 48}.00
+                        ₦{(b.service?.price || 7000).toLocaleString()}
                       </div>
                     </div>
 
@@ -1144,7 +1144,7 @@ export default function AdminDashboardPage({ currentUser, onNavigate, onLogout }
                   Grooming Treatments & Service Menu ({services.length})
                 </h2>
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.85rem' }}>
-                  Adjust service pricing ($), duration, package descriptions, and add new bespoke offerings.
+                  Adjust service pricing (₦), duration, package descriptions, and add new bespoke offerings.
                 </p>
               </div>
 
@@ -1220,7 +1220,7 @@ export default function AdminDashboardPage({ currentUser, onNavigate, onLogout }
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.75rem' }}>
                       <span style={{ fontFamily: 'var(--font-serif)', fontSize: '1.35rem', fontWeight: 800, color: 'var(--gold-light)' }}>
-                        ${s.price}.00
+                        ₦{s.price.toLocaleString()}
                       </span>
                       <span style={{ color: 'var(--text-muted)', fontSize: '0.82rem' }}>
                         • {s.duration}
@@ -1628,7 +1628,7 @@ export default function AdminDashboardPage({ currentUser, onNavigate, onLogout }
                     style={{ width: '100%', padding: '0.75rem', backgroundColor: 'rgba(10,12,17,0.8)', border: '1px solid rgba(255,255,255,0.15)', borderRadius: 'var(--radius-sm)', color: '#fff' }}
                   >
                     <option value="">Select Treatment</option>
-                    {services.map(s => <option key={s.id} value={s.id}>{s.title} (${s.price})</option>)}
+                    {services.map(s => <option key={s.id} value={s.id}>{s.title} (₦{s.price.toLocaleString()})</option>)}
                   </select>
                 </div>
 
@@ -1806,7 +1806,7 @@ export default function AdminDashboardPage({ currentUser, onNavigate, onLogout }
                   </select>
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '0.35rem' }}>Price ($) *</label>
+                  <label style={{ display: 'block', fontSize: '0.8rem', color: 'var(--text-secondary)', marginBottom: '0.35rem' }}>Price (₦) *</label>
                   <input
                     type="number"
                     required

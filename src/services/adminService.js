@@ -9,28 +9,30 @@ const USERS_KEY = 'noble_blade_users';
 const SETTINGS_KEY = 'noble_blade_shop_settings';
 
 const DEFAULT_SETTINGS = {
-  parlourName: 'The Noble Blade',
-  tagline: "Gentlemen's Parlour & Grooming Salon",
-  phone: '(555) 892-3472',
-  email: 'concierge@nobleblade.com',
-  address: '448 Montgomery St, Financial District, SF',
+  parlourName: 'Adetech Barbing',
+  tagline: "Master Cuts, Waves & Luxury Grooming Lounge",
+  phone: '09077108987',
+  email: 'amiflexboyc@gmail.com',
+  address: '452 St. James Boulevard, City Center',
   openHours: 'Mon - Sat: 9:00 AM - 8:00 PM | Sun: 10:00 AM - 5:00 PM',
   acceptingWalkins: true,
-  announcement: 'Accepting Walk-ins & Priority Online Bookings for the Weekend',
+  announcement: 'Now booking with Master Artisans Adedayo, Samuel, James, and Olaoluwa',
   loyaltyMultiplier: 10,
   enableOnlineBooking: true,
 };
 
-// Ensure base dataset exists
 export function initAdminData() {
   try {
-    if (!localStorage.getItem(BARBERS_KEY)) {
+    const storedBarbers = JSON.parse(localStorage.getItem(BARBERS_KEY) || '[]');
+    if (!storedBarbers.length || storedBarbers.some(b => b.id === 'marcus-vance')) {
       localStorage.setItem(BARBERS_KEY, JSON.stringify(BARBERS_DATA));
     }
-    if (!localStorage.getItem(SERVICES_KEY)) {
+    const storedServices = JSON.parse(localStorage.getItem(SERVICES_KEY) || '[]');
+    if (!storedServices.length || storedServices.some(s => s.price < 500)) {
       localStorage.setItem(SERVICES_KEY, JSON.stringify(SERVICES_DATA));
     }
-    if (!localStorage.getItem(SETTINGS_KEY)) {
+    const storedSettings = JSON.parse(localStorage.getItem(SETTINGS_KEY) || '{}');
+    if (!storedSettings.phone || storedSettings.phone.includes('555')) {
       localStorage.setItem(SETTINGS_KEY, JSON.stringify(DEFAULT_SETTINGS));
     }
   } catch (err) {

@@ -1,46 +1,72 @@
 import React, { useState } from 'react';
-import { Camera, ZoomIn, X, Scissors, ArrowRight, Sparkles } from 'lucide-react';
+import { Camera, ZoomIn, X, Scissors, ArrowRight, Sparkles, Tag } from 'lucide-react';
+import cutWavesProfile from '../assets/cut_waves_profile.jpg';
+import cutWavesChin from '../assets/cut_waves_chin.jpg';
+import cutHightopCurls from '../assets/cut_hightop_curls.jpg';
 import galleryCrispLineup from '../assets/gallery_crisp_lineup.jpg';
-import galleryWavesCut from '../assets/gallery_waves_cut.jpg';
-import galleryFadeTaper from '../assets/gallery_fade_taper.jpg';
 import galleryBarberLaugh from '../assets/gallery_barber_laugh.jpg';
+import galleryFadeTaper from '../assets/gallery_fade_taper.jpg';
 
 export const GALLERY_ITEMS = [
   {
     id: 1,
-    image: galleryCrispLineup,
-    title: 'Razor-Sharp Edge Up & Clean Lineup',
-    category: 'fades',
-    tag: 'Surgical Precision',
-    barber: 'Adetech',
-    description: 'Micro-calibrated trimmer hairline detailing, crisp sharp temple boxes, and flawless forehead alignment.',
+    image: cutWavesProfile,
+    title: '360 Waves Profile & Precision Beard Edge',
+    category: 'waves',
+    tag: 'Signature Waves',
+    price: 7000,
+    barber: 'Adedayo',
+    description: 'Deep 360 spinning wave sculpting, razor sharp temple boxes, and surgical beard line alignment.',
   },
   {
     id: 2,
-    image: galleryWavesCut,
-    title: '360 Waves Scissor Trim & Temple Taper',
-    category: 'classic',
-    tag: 'Signature Wave Flow',
-    barber: 'Adetech',
-    description: 'Scissor-over-comb depth calibration on deep 360 spinning waves paired with a blended low taper and sharp edges.',
+    image: cutWavesChin,
+    title: 'Executive Wave Taper & Full Beard Sculpt',
+    category: 'waves',
+    tag: 'Executive Grooming',
+    price: 8500,
+    barber: 'Samuel',
+    description: 'Low skin taper paired with spinning wave flow, clean ear arch clearance, and nourished beard detailing.',
   },
   {
     id: 3,
-    image: galleryFadeTaper,
-    title: 'Precision Low Skin Fade & Crown Sculpt',
+    image: cutHightopCurls,
+    title: 'Textured Sponge Twists & Drop Skin Fade',
     category: 'fades',
-    tag: 'Master Fades',
-    barber: 'Adetech',
-    description: 'High-contrast seamless skin transition, textured crown balancing, and hand-sculpted beard integration.',
+    tag: 'Modern Artistry',
+    price: 10000,
+    barber: 'Olaoluwa',
+    description: 'High-contrast drop skin fade, textured sponge twists, crisp hairline detailing, and beard fade gradient.',
   },
   {
     id: 4,
+    image: galleryCrispLineup,
+    title: 'Ultra Razor Sharp Lineup & Forehead Detail',
+    category: 'lineup',
+    tag: 'Surgical Lineup',
+    price: 5000,
+    barber: 'James',
+    description: 'Micro-calibrated gold trimmer hairline detailing, crisp 90-degree temple boxes, and clean neck finish.',
+  },
+  {
+    id: 5,
+    image: galleryFadeTaper,
+    title: 'Mid Skin Fade & Natural Beard Sculpt',
+    category: 'fades',
+    tag: 'Master Fade',
+    price: 8000,
+    barber: 'Samuel',
+    description: 'Seamless zero-gap skin transition with debulked beard weight and sharp cheek lines.',
+  },
+  {
+    id: 6,
     image: galleryBarberLaugh,
-    title: 'The Premium Salon Experience & VIP Cut',
-    category: 'experience',
-    tag: 'VIP Patron Vibe',
-    barber: 'Adetech',
-    description: 'World-class grooming atmosphere with expert styling, good vibes, steaming hot towel treatment, and luxury service.',
+    title: 'The Adetech VIP Salon Cut & Steam Treatment',
+    category: 'vip',
+    tag: 'VIP Lounge Experience',
+    price: 15000,
+    barber: 'Adedayo',
+    description: 'Full master haircut consultation, hot eucalyptus towel facial steam, precision shave, and styling.',
   },
 ];
 
@@ -56,7 +82,7 @@ export default function Gallery({ onSelectStyle }) {
     <section
       id="gallery"
       style={{
-        padding: '6rem 0',
+        padding: '5rem 0',
         position: 'relative',
         borderBottom: '1px solid var(--border-subtle)',
       }}
@@ -64,14 +90,13 @@ export default function Gallery({ onSelectStyle }) {
       <div className="container">
         <div className="section-header">
           <div className="section-tag">
-            <Camera size={14} /> The Lookbook
+            <Camera size={14} /> The Lookbook & Price Guide
           </div>
           <h2 className="section-title">
             Our Work in the Chair: <span className="gradient-gold-text">Crafted Perfection</span>
           </h2>
           <p className="section-desc">
-            Browse through our portfolio of custom fades, textured crops, razor-sharp beard contours,
-            and timeless gentleman classics.
+            Browse our signature cuts, 360 waves, drop fades, and beard contours with transparent Nigerian Naira pricing.
           </p>
         </div>
 
@@ -87,9 +112,10 @@ export default function Gallery({ onSelectStyle }) {
         >
           {[
             { id: 'all', label: 'All Portfolio' },
-            { id: 'fades', label: 'Skin Fades & Lineups' },
-            { id: 'classic', label: '360 Waves & Scissor Cuts' },
-            { id: 'experience', label: 'Salon Vibe & VIP' },
+            { id: 'waves', label: '360 Waves & Tapers' },
+            { id: 'fades', label: 'Skin & Drop Fades' },
+            { id: 'lineup', label: 'Razor Lineups' },
+            { id: 'vip', label: 'VIP Lounge Experience' },
           ].map((cat) => (
             <button
               key={cat.id}
@@ -115,7 +141,7 @@ export default function Gallery({ onSelectStyle }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
             gap: '2rem',
           }}
         >
@@ -128,11 +154,12 @@ export default function Gallery({ onSelectStyle }) {
                 overflow: 'hidden',
                 position: 'relative',
                 cursor: 'pointer',
-                group: 'true',
+                border: '1px solid rgba(197, 160, 89, 0.25)',
+                transition: 'transform 0.3s ease, border-color 0.3s ease',
               }}
               onClick={() => setSelectedImage(item)}
             >
-              <div style={{ position: 'relative', height: '340px', overflow: 'hidden' }}>
+              <div style={{ position: 'relative', height: '360px', overflow: 'hidden' }}>
                 <img
                   src={item.image}
                   alt={item.title}
@@ -153,7 +180,7 @@ export default function Gallery({ onSelectStyle }) {
                   style={{
                     position: 'absolute',
                     inset: 0,
-                    background: 'linear-gradient(to top, rgba(10, 11, 14, 0.9) 0%, transparent 60%)',
+                    background: 'linear-gradient(to top, rgba(10, 11, 14, 0.95) 0%, rgba(10, 11, 14, 0.2) 50%, transparent 100%)',
                   }}
                 />
 
@@ -178,24 +205,26 @@ export default function Gallery({ onSelectStyle }) {
                   {item.tag}
                 </div>
 
-                {/* Zoom Icon indicator */}
+                {/* Nigerian Naira Price Badge Top Right */}
                 <div
                   style={{
                     position: 'absolute',
                     top: '1rem',
                     right: '1rem',
-                    width: 36,
-                    height: 36,
-                    borderRadius: '50%',
-                    background: 'rgba(12, 14, 20, 0.8)',
-                    color: 'var(--gold-light)',
+                    backgroundColor: 'var(--gold-light)',
+                    color: '#070d1e',
+                    fontSize: '0.85rem',
+                    fontWeight: 800,
+                    letterSpacing: '0.02em',
+                    padding: '0.35rem 0.85rem',
+                    borderRadius: 'var(--radius-full)',
+                    boxShadow: '0 4px 15px rgba(0, 0, 0, 0.5)',
                     display: 'flex',
                     alignItems: 'center',
-                    justifyContent: 'center',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    gap: '0.25rem',
                   }}
                 >
-                  <ZoomIn size={16} />
+                  ₦{item.price.toLocaleString()}
                 </div>
 
                 {/* Content Overlay */}
@@ -207,10 +236,15 @@ export default function Gallery({ onSelectStyle }) {
                     right: '1.25rem',
                   }}
                 >
-                  <div style={{ fontSize: '0.75rem', color: 'var(--gold-light)', fontWeight: 600, marginBottom: '0.2rem' }}>
-                    Cut by {item.barber}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.3rem' }}>
+                    <span style={{ fontSize: '0.78rem', color: 'var(--gold-light)', fontWeight: 600 }}>
+                      Crafted by {item.barber}
+                    </span>
+                    <span style={{ fontSize: '0.75rem', color: 'rgba(255, 255, 255, 0.6)' }}>
+                      Click to inspect
+                    </span>
                   </div>
-                  <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#fff', lineHeight: 1.3 }}>
+                  <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#fff', lineHeight: 1.3 }}>
                     {item.title}
                   </h3>
                 </div>
@@ -265,13 +299,18 @@ export default function Gallery({ onSelectStyle }) {
             />
 
             <div style={{ padding: '2rem' }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem' }}>
-                <span style={{ fontSize: '0.8rem', color: 'var(--gold-light)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700 }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
+                <span style={{ fontSize: '0.85rem', color: 'var(--gold-light)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700 }}>
                   Crafted by {selectedImage.barber}
                 </span>
-                <span style={{ fontSize: '0.8rem', backgroundColor: 'var(--gold-subtle)', color: 'var(--gold-light)', padding: '0.2rem 0.6rem', borderRadius: 'var(--radius-sm)' }}>
-                  {selectedImage.tag}
-                </span>
+                <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+                  <span style={{ fontSize: '0.8rem', backgroundColor: 'var(--gold-subtle)', color: 'var(--gold-light)', padding: '0.2rem 0.6rem', borderRadius: 'var(--radius-sm)' }}>
+                    {selectedImage.tag}
+                  </span>
+                  <span style={{ fontSize: '1.1rem', fontWeight: 800, color: 'var(--gold-light)', backgroundColor: 'rgba(197, 160, 89, 0.15)', border: '1px solid var(--border-gold)', padding: '0.2rem 0.8rem', borderRadius: 'var(--radius-sm)' }}>
+                    ₦{selectedImage.price.toLocaleString()}
+                  </span>
+                </div>
               </div>
 
               <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.75rem', fontFamily: 'var(--font-serif)' }}>
@@ -297,7 +336,7 @@ export default function Gallery({ onSelectStyle }) {
                   }}
                   className="btn btn-gold"
                 >
-                  <Scissors size={16} /> Request This Look
+                  <Scissors size={16} /> Request This Look (₦{selectedImage.price.toLocaleString()})
                 </button>
               </div>
             </div>

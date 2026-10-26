@@ -255,7 +255,7 @@ export default function Booking({ initialService = null, initialBarber = null, o
                           {srv.title}
                         </div>
                         <div style={{ fontWeight: 800, fontSize: '1.15rem', color: 'var(--gold-light)' }}>
-                          ${srv.price}
+                          ₦{srv.price.toLocaleString()}
                         </div>
                       </div>
                       <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.3rem' }}>
@@ -490,7 +490,7 @@ export default function Booking({ initialService = null, initialBarber = null, o
                     Selected Reservation
                   </div>
                   <div style={{ fontWeight: 800, fontSize: '1.1rem', color: '#fff' }}>
-                    {selectedService?.title} (${selectedService?.price})
+                    {selectedService?.title} (₦{selectedService?.price?.toLocaleString()})
                   </div>
                   <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>
                     With {selectedBarber?.name} • {selectedDate} at {selectedTime || '11:45 AM'}
@@ -683,7 +683,7 @@ export default function Booking({ initialService = null, initialBarber = null, o
                 <div style={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(255,255,255,0.08)', paddingTop: '0.75rem', marginTop: '1rem' }}>
                   <span style={{ fontWeight: 700, color: '#fff' }}>Total Due at Chair</span>
                   <span style={{ fontFamily: 'var(--font-serif)', fontSize: '1.25rem', fontWeight: 800, color: 'var(--gold-light)' }}>
-                    ${confirmedBooking.service.price}.00
+                    ₦{confirmedBooking.service.price.toLocaleString()}
                   </span>
                 </div>
               </div>

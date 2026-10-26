@@ -49,7 +49,7 @@ export default function App() {
       id: `custom-${styleItem.id}`,
       title: styleItem.title,
       category: 'haircut',
-      price: 48,
+      price: styleItem.price || 7000,
       duration: '45 mins',
       popular: true,
       description: `Tailored session inspired by gallery cut: "${styleItem.title}". Includes full consultation with the barber.`,

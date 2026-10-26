@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Car, Wifi, Wine } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Send, CheckCircle2, Car, Wifi, Wine, MessageCircle } from 'lucide-react';
 
 export default function Contact() {
   const [formState, setFormState] = useState({
@@ -215,11 +215,29 @@ export default function Contact() {
                     <Phone size={18} />
                   </div>
                   <div>
-                    <div style={{ fontSize: '0.8rem', color: 'var(--gold-light)', textTransform: 'uppercase', fontWeight: 700 }}>Telephone Concierge</div>
-                    <a href="tel:+234905773736" style={{ fontWeight: 700, color: '#fff', fontSize: '1rem', textDecoration: 'none' }}>
-                      (234)9057773736
+                    <div style={{ fontSize: '0.8rem', color: 'var(--gold-light)', textTransform: 'uppercase', fontWeight: 700 }}>Phone & Appointments</div>
+                    <a href="tel:09077108987" style={{ fontWeight: 700, color: '#fff', fontSize: '1.05rem', textDecoration: 'none' }}>
+                      09077108987
                     </a>
-                    <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Direct lines to front desk & appointments</div>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Direct line for calls and instant reservations</div>
+                  </div>
+                </div>
+
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'flex-start' }}>
+                  <div style={{ width: 40, height: 40, borderRadius: '50%', background: 'rgba(37, 211, 102, 0.15)', border: '1px solid #25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#25D366', flexShrink: 0 }}>
+                    <MessageCircle size={18} />
+                  </div>
+                  <div>
+                    <div style={{ fontSize: '0.8rem', color: '#25D366', textTransform: 'uppercase', fontWeight: 700 }}>WhatsApp Chat</div>
+                    <a
+                      href="https://wa.me/2349077108987"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      style={{ fontWeight: 700, color: '#25D366', fontSize: '1.05rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.35rem' }}
+                    >
+                      Chat on WhatsApp (09077108987)
+                    </a>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>Instant response & booking inquiries on WhatsApp</div>
                   </div>
                 </div>
 
@@ -229,9 +247,10 @@ export default function Contact() {
                   </div>
                   <div>
                     <div style={{ fontSize: '0.8rem', color: 'var(--gold-light)', textTransform: 'uppercase', fontWeight: 700 }}>Electronic Mail</div>
-                    <a href="mailto:concierge@thenobleblade.com" style={{ fontWeight: 700, color: '#fff', fontSize: '1rem', textDecoration: 'none' }}>
-                      concierge@thenobleblade.com
+                    <a href="mailto:amiflexboyc@gmail.com" style={{ fontWeight: 700, color: '#fff', fontSize: '1rem', textDecoration: 'none' }}>
+                      amiflexboyc@gmail.com
                     </a>
+                    <div style={{ fontSize: '0.85rem', color: 'var(--text-secondary)' }}>24/7 client response mailbox</div>
                   </div>
                 </div>
               </div>

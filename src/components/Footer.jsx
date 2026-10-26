@@ -22,6 +22,12 @@ const YoutubeIcon = () => (
   </svg>
 );
 
+const WhatsappIcon = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.312.045-.698.077-1.127-.061-.264-.085-.595-.195-1.031-.383-1.834-.796-3.031-2.656-3.123-2.778-.092-.123-.746-.992-.746-1.893 0-.9.472-1.344.641-1.528.169-.184.368-.23.491-.23.123 0 .245.002.352.007.112.006.262-.043.409.313.153.37.521 1.272.567 1.365.046.092.077.2.015.323-.061.123-.092.2-.184.307-.092.108-.194.24-.277.323-.092.092-.188.192-.081.376.107.184.477.787 1.025 1.274.706.628 1.301.822 1.485.914.184.092.292.077.4-.046.108-.123.461-.537.584-.721.123-.184.246-.154.415-.092.169.062 1.074.507 1.258.599.184.092.307.138.353.215.046.077.046.446-.098.851zM12.04 2C6.51 2 2.02 6.49 2.02 12.02c0 1.94.55 3.75 1.51 5.29L2 22l4.83-1.49c1.48.88 3.2 1.39 5.21 1.39 5.53 0 10.02-4.49 10.02-10.02C22.06 6.49 17.57 2 12.04 2z"/>
+  </svg>
+);
+
 export default function Footer({ onNavigate }) {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
@@ -88,8 +94,47 @@ export default function Footer({ onNavigate }) {
               Dedicated to the gentleman who demands excellence in every cut.
             </p>
 
+            {/* Contact Info Pills */}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', marginBottom: '1.25rem', fontSize: '0.88rem' }}>
+              <a
+                href="https://wa.me/2349077108987"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: '#25D366', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 600 }}
+              >
+                <WhatsappIcon /> WhatsApp: 09077108987
+              </a>
+              <a
+                href="mailto:amiflexboyc@gmail.com"
+                style={{ color: 'var(--gold-light)', textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '0.5rem' }}
+              >
+                ✉️ amiflexboyc@gmail.com
+              </a>
+            </div>
+
             {/* Social Icons */}
             <div style={{ display: 'flex', gap: '0.75rem' }}>
+              <a
+                href="https://wa.me/2349077108987"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                style={{
+                  width: 38,
+                  height: 38,
+                  borderRadius: '50%',
+                  background: 'rgba(37, 211, 102, 0.15)',
+                  border: '1px solid #25D366',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: '#25D366',
+                  transition: 'all 0.2s',
+                  textDecoration: 'none',
+                }}
+              >
+                <WhatsappIcon />
+              </a>
               {[
                 { icon: InstagramIcon, href: '#instagram', label: 'Instagram' },
                 { icon: FacebookIcon, href: '#facebook', label: 'Facebook' },

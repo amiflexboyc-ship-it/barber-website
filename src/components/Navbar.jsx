@@ -212,10 +212,12 @@ export default function Navbar({ currentPage, setCurrentPage, currentUser, onLog
               <Award size={16} strokeWidth={2.4} />
             </button>
 
-            {/* 2) Dark Round Icon with Notification Indicator */}
+            {/* 2) WhatsApp Direct Link */}
             <a
-              href="tel:+15558923472"
-              title="Salon Concierge: (555) 892-3472"
+              href="https://wa.me/2349077108987"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Chat on WhatsApp: 09077108987"
               style={{
                 width: 32,
                 height: 32,

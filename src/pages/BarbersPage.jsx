@@ -18,10 +18,10 @@ export default function BarbersPage({ onNavigate, onSelectBarber }) {
             <Award size={14} /> Master Barber Guild
           </div>
           <h1 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 800, marginBottom: '1.25rem' }}>
-            Meet The Artisans of <span className="gradient-gold-text">The Noble Blade</span>
+            Meet The Master Artisans of <span className="gradient-gold-text">Adetech Barbing</span>
           </h1>
           <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', lineHeight: 1.7 }}>
-            Our team comprises award-winning master craftsmen who treat barbering as an exacting discipline.
+            Meet our 4 licensed master craftsmen — Adedayo, Samuel, James, and Olaoluwa.
             Select your preferred barber and experience grooming at its pinnacle.
           </p>
         </div>
