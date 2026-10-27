@@ -101,9 +101,10 @@ export default function WhyChooseUs() {
 
         {/* Ambient quote box */}
         <div
+          className="why-quote-box"
           style={{
-            marginTop: '4rem',
-            padding: '2rem 3rem',
+            marginTop: '3.5rem',
+            padding: '2rem 2.5rem',
             borderRadius: 'var(--radius-md)',
             background: 'linear-gradient(90deg, rgba(197, 160, 89, 0.08) 0%, rgba(197, 160, 89, 0.02) 100%)',
             border: '1px solid var(--border-gold)',
@@ -115,7 +116,7 @@ export default function WhyChooseUs() {
           }}
         >
           <div style={{ display: 'flex', alignItems: 'center', gap: '1.25rem' }}>
-            <HeartHandshake size={36} color="var(--gold-light)" />
+            <HeartHandshake size={36} color="var(--gold-light)" style={{ flexShrink: 0 }} />
             <div>
               <div style={{ fontFamily: 'var(--font-serif)', fontSize: '1.15rem', fontWeight: 700, color: '#fff' }}>
                 Sanitation & Hygiene Protocol Exceeding Health Standards
@@ -141,6 +142,14 @@ export default function WhyChooseUs() {
           </span>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .why-quote-box {
+            padding: 1.5rem 1rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

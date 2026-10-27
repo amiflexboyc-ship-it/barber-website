@@ -80,7 +80,7 @@ export default function About({ onMeetBarbers, onBookNow }) {
 
             {/* Badge overlay */}
             <div
-              className="glass-card"
+              className="glass-card about-badge"
               style={{
                 position: 'absolute',
                 top: '1.5rem',
@@ -148,7 +148,7 @@ export default function About({ onMeetBarbers, onBookNow }) {
             </div>
 
             {/* Buttons */}
-            <div style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
+            <div className="about-btn-group" style={{ display: 'flex', gap: '1.25rem', flexWrap: 'wrap' }}>
               <button onClick={onBookNow} className="btn btn-gold">
                 <Scissors size={16} /> Reserve Your Appointment
               </button>
@@ -166,10 +166,28 @@ export default function About({ onMeetBarbers, onBookNow }) {
         @media (max-width: 960px) {
           .about-grid {
             grid-template-columns: 1fr !important;
-            gap: 3rem !important;
+            gap: 2.5rem !important;
           }
           .about-features {
             grid-template-columns: 1fr !important;
+            gap: 1rem !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .about-badge {
+            left: 0.75rem !important;
+            top: 0.75rem !important;
+            padding: 0.65rem 0.9rem !important;
+            transform: scale(0.92);
+            transform-origin: top left;
+          }
+        }
+        @media (max-width: 480px) {
+          .about-btn-group {
+            flex-direction: column !important;
+          }
+          .about-btn-group .btn {
+            width: 100% !important;
           }
         }
       `}</style>

@@ -60,7 +60,7 @@ export default function Contact() {
         >
           {/* Left Column: Direct Message Form */}
           <div
-            className="glass-card"
+            className="glass-card contact-form-card"
             style={{
               padding: '2.5rem',
               border: '1px solid var(--border-gold)',
@@ -301,6 +301,11 @@ export default function Contact() {
           }
           .form-row {
             grid-template-columns: 1fr !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .contact-form-card {
+            padding: 1.5rem 1rem !important;
           }
         }
       `}</style>

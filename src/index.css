@@ -280,10 +280,66 @@ h1, h2, h3, h4, .brand-font {
 
 /* Responsive utilities */
 @media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
   .section-header {
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
   }
   .section-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
+  }
+  .section-desc {
+    font-size: 0.95rem;
+  }
+  .modal-overlay {
+    padding: 0.75rem;
+    align-items: flex-end;
+  }
+  .modal-overlay > div {
+    max-height: 88vh;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100% !important;
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
   }
 }
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.85rem;
+  }
+  .section-title {
+    font-size: 1.6rem;
+  }
+  .btn {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+  /* Prevent iOS Safari auto-zoom on input focus */
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="password"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Touch scroll utility for mobile carousels & tabs */
+.mobile-touch-scroll {
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.mobile-touch-scroll::-webkit-scrollbar {
+  display: none;
+}
+.mobile-touch-scroll > * {
+  scroll-snap-align: start;
+}
+

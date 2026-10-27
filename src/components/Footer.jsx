@@ -287,6 +287,7 @@ export default function Footer({ onNavigate }) {
 
         {/* Bottom Bar */}
         <div
+          className="footer-bottom-bar"
           style={{
             borderTop: '1px solid rgba(255, 255, 255, 0.06)',
             paddingTop: '2rem',
@@ -338,6 +339,11 @@ export default function Footer({ onNavigate }) {
         @media (max-width: 550px) {
           .footer-grid {
             grid-template-columns: 1fr !important;
+          }
+          .footer-bottom-bar {
+            flex-direction: column !important;
+            text-align: center !important;
+            gap: 1.25rem !important;
           }
         }
       `}</style>

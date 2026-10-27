@@ -246,9 +246,10 @@ export default function AuthGate({ onAuthenticated }) {
           </div>
 
           <h1
+            className="auth-title"
             style={{
               fontFamily: 'var(--font-serif)',
-              fontSize: '2.1rem',
+              fontSize: 'clamp(1.6rem, 5vw, 2.1rem)',
               fontWeight: 800,
               letterSpacing: '0.05em',
               color: '#ffffff',
@@ -266,7 +267,7 @@ export default function AuthGate({ onAuthenticated }) {
 
         {/* Auth Card Box */}
         <div
-          className="glass-card"
+          className="glass-card auth-card"
           style={{
             padding: '2rem',
             borderRadius: 'var(--radius-lg)',
@@ -778,7 +779,7 @@ export default function AuthGate({ onAuthenticated }) {
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
+              <div className="auth-password-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
                 <div>
                   <label
                     style={{
@@ -957,12 +958,24 @@ export default function AuthGate({ onAuthenticated }) {
             color: 'var(--text-muted)',
             fontSize: '0.78rem',
             marginTop: '1.5rem',
+            textAlign: 'center',
           }}
         >
-          <ShieldCheck size={14} color="var(--gold-light)" />
+          <ShieldCheck size={14} color="var(--gold-light)" style={{ flexShrink: 0 }} />
           <span>Guaranteed Confidentiality • The Noble Blade Gentlemen's Parlour & Grooming Salon</span>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 480px) {
+          .auth-card {
+            padding: 1.35rem 1rem !important;
+          }
+          .auth-password-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

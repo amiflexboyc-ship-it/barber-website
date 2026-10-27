@@ -145,7 +145,7 @@ export default function Booking({ initialService = null, initialBarber = null, o
 
         {/* Multi-step Container */}
         <div
-          className="glass-card"
+          className="glass-card booking-card"
           style={{
             maxWidth: '920px',
             margin: '0 auto',
@@ -197,11 +197,13 @@ export default function Booking({ initialService = null, initialBarber = null, o
                         transition: 'all 0.3s ease',
                         border: step === s.num ? '2px solid #ffffff' : 'none',
                         boxShadow: step >= s.num ? '0 0 15px rgba(197, 160, 89, 0.4)' : 'none',
+                        flexShrink: 0,
                       }}
                     >
                       {step > s.num ? <CheckCircle2 size={18} /> : s.num}
                     </div>
                     <span
+                      className="step-indicator-text"
                       style={{
                         fontSize: '0.8rem',
                         color: step >= s.num ? '#ffffff' : 'var(--text-muted)',
@@ -355,7 +357,7 @@ export default function Booking({ initialService = null, initialBarber = null, o
                 })}
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div className="booking-step-actions" style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <button onClick={() => setStep(1)} className="btn btn-ghost">
                   <ChevronLeft size={18} /> Back
                 </button>
@@ -418,7 +420,7 @@ export default function Booking({ initialService = null, initialBarber = null, o
                 <div style={{ fontSize: '0.85rem', color: 'var(--gold-light)', textTransform: 'uppercase', letterSpacing: '0.08em', fontWeight: 700, marginBottom: '0.75rem' }}>
                   Available Time Slots
                 </div>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))', gap: '0.75rem' }}>
+                <div className="time-slots-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(110px, 1fr))', gap: '0.75rem' }}>
                   {timeSlots.map((slot) => {
                     const isSelected = selectedTime === slot;
                     return (
@@ -445,7 +447,7 @@ export default function Booking({ initialService = null, initialBarber = null, o
                 </div>
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div className="booking-step-actions" style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <button onClick={() => setStep(2)} className="btn btn-ghost">
                   <ChevronLeft size={18} /> Back
                 </button>
@@ -599,7 +601,7 @@ export default function Booking({ initialService = null, initialBarber = null, o
                 />
               </div>
 
-              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <div className="booking-step-actions" style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <button type="button" onClick={() => setStep(3)} className="btn btn-ghost">
                   <ChevronLeft size={18} /> Back
                 </button>
@@ -635,7 +637,7 @@ export default function Booking({ initialService = null, initialBarber = null, o
                 Reservation Confirmed
               </div>
 
-              <h3 style={{ fontSize: '2rem', fontFamily: 'var(--font-serif)', fontWeight: 800, marginBottom: '0.5rem', color: '#fff' }}>
+              <h3 style={{ fontSize: 'clamp(1.5rem, 4vw, 2rem)', fontFamily: 'var(--font-serif)', fontWeight: 800, marginBottom: '0.5rem', color: '#fff' }}>
                 Your Chair Awaits, {confirmedBooking.client.name.split(' ')[0]}
               </h3>
 
@@ -646,6 +648,7 @@ export default function Booking({ initialService = null, initialBarber = null, o
 
               {/* Receipt Ticket */}
               <div
+                className="booking-receipt-box"
                 style={{
                   maxWidth: '500px',
                   margin: '0 auto 2.5rem auto',
@@ -688,7 +691,7 @@ export default function Booking({ initialService = null, initialBarber = null, o
                 </div>
               </div>
 
-              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+              <div className="booking-finish-actions" style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
                 {onViewDashboard && (
                   <button onClick={onViewDashboard} className="btn btn-gold" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                     <Sparkles size={16} /> View in My Dashboard
@@ -707,6 +710,42 @@ export default function Booking({ initialService = null, initialBarber = null, o
           )}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .booking-card {
+            padding: 1.25rem 0.85rem !important;
+          }
+          .step-indicator-text {
+            font-size: 0.68rem !important;
+          }
+          .booking-step-actions {
+            flex-direction: column-reverse !important;
+            gap: 0.75rem !important;
+          }
+          .booking-step-actions .btn {
+            width: 100% !important;
+          }
+          .time-slots-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 0.5rem !important;
+          }
+          .booking-receipt-box {
+            padding: 1.2rem 1rem !important;
+          }
+          .booking-finish-actions {
+            flex-direction: column !important;
+          }
+          .booking-finish-actions .btn {
+            width: 100% !important;
+          }
+        }
+        @media (max-width: 380px) {
+          .time-slots-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

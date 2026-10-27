@@ -212,7 +212,7 @@ export default function DashboardPage({ currentUser, onNavigate, onLogout, onUpd
 
         {/* Member Header Card */}
         <div
-          className="glass-card"
+          className="glass-card dashboard-member-card"
           style={{
             padding: '2rem 2.5rem',
             borderRadius: 'var(--radius-lg)',
@@ -357,6 +357,7 @@ export default function DashboardPage({ currentUser, onNavigate, onLogout, onUpd
 
           {/* Quick Metrics Strip */}
           <div
+            className="dashboard-metrics-strip"
             style={{
               display: 'grid',
               gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))',
@@ -474,6 +475,7 @@ export default function DashboardPage({ currentUser, onNavigate, onLogout, onUpd
 
         {/* Dashboard Navigation Tabs */}
         <div
+          className="dashboard-tabs-bar"
           style={{
             display: 'flex',
             gap: '0.5rem',
@@ -585,7 +587,7 @@ export default function DashboardPage({ currentUser, onNavigate, onLogout, onUpd
                   {upcomingBookings.map((b) => (
                     <div
                       key={b.id}
-                      className="glass-card"
+                      className="glass-card dashboard-booking-item"
                       style={{
                         padding: '1.75rem',
                         borderRadius: 'var(--radius-md)',
@@ -658,7 +660,7 @@ export default function DashboardPage({ currentUser, onNavigate, onLogout, onUpd
                       </div>
 
                       {/* Actions */}
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', minWidth: '150px' }}>
+                      <div className="dashboard-booking-actions" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', minWidth: '150px' }}>
                         <button
                           onClick={() => {
                             setReschedulingBooking(b);
@@ -1494,6 +1496,42 @@ export default function DashboardPage({ currentUser, onNavigate, onLogout, onUpd
           </div>
         </div>
       )}
+      {/* Modal overlays and mobile styles */}
+      <style>{`
+        @media (max-width: 768px) {
+          .dashboard-member-card {
+            padding: 1.5rem 1rem !important;
+          }
+          .dashboard-metrics-strip {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.85rem !important;
+          }
+          .dashboard-tabs-bar {
+            scrollbar-width: none;
+          }
+          .dashboard-tabs-bar::-webkit-scrollbar {
+            display: none;
+          }
+          .dashboard-booking-item {
+            grid-template-columns: auto 1fr !important;
+            gap: 1rem !important;
+            padding: 1.25rem 1rem !important;
+          }
+          .dashboard-booking-actions {
+            grid-column: 1 / -1 !important;
+            flex-direction: row !important;
+            width: 100% !important;
+          }
+          .dashboard-booking-actions button {
+            flex: 1 !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .dashboard-metrics-strip {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

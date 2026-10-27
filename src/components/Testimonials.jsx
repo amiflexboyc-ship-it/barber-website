@@ -74,7 +74,7 @@ export default function Testimonials() {
 
         {/* Highlighted Review Card */}
         <div
-          className="glass-card"
+          className="glass-card testimonial-card"
           style={{
             maxWidth: '820px',
             margin: '0 auto',
@@ -87,7 +87,7 @@ export default function Testimonials() {
           <Quote
             size={48}
             color="var(--gold-light)"
-            style={{ opacity: 0.25, position: 'absolute', top: '2rem', right: '2.5rem' }}
+            style={{ opacity: 0.25, position: 'absolute', top: '1.5rem', right: '1.5rem' }}
           />
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', marginBottom: '1.25rem' }}>
@@ -113,6 +113,7 @@ export default function Testimonials() {
           </div>
 
           <p
+            className="testimonial-quote-text"
             style={{
               fontSize: '1.2rem',
               lineHeight: 1.7,
@@ -126,6 +127,7 @@ export default function Testimonials() {
           </p>
 
           <div
+            className="testimonial-bottom-row"
             style={{
               display: 'flex',
               justifyContent: 'space-between',
@@ -170,6 +172,22 @@ export default function Testimonials() {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 640px) {
+          .testimonial-card {
+            padding: 1.75rem 1.25rem !important;
+          }
+          .testimonial-quote-text {
+            font-size: 1.05rem !important;
+            min-height: auto !important;
+          }
+          .testimonial-bottom-row {
+            flex-direction: column !important;
+            align-items: flex-start !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

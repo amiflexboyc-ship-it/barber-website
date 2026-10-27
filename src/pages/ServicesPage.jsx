@@ -75,8 +75,8 @@ export default function ServicesPage({ onNavigate, onSelectService }) {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-              gap: '2.5rem',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+              gap: '2rem',
               maxWidth: '850px',
               margin: '0 auto',
             }}
@@ -84,7 +84,7 @@ export default function ServicesPage({ onNavigate, onSelectService }) {
             {memberships.map((m, i) => (
               <div
                 key={i}
-                className="glass-card"
+                className="glass-card membership-card"
                 style={{
                   padding: '2.5rem',
                   border: m.popular ? '1.5px solid var(--gold-light)' : '1px solid var(--border-subtle)',
@@ -147,6 +147,14 @@ export default function ServicesPage({ onNavigate, onSelectService }) {
           </div>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 600px) {
+          .membership-card {
+            padding: 1.5rem 1.25rem !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

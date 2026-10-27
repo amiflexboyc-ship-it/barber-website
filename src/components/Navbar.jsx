@@ -84,13 +84,14 @@ export default function Navbar({ currentPage, setCurrentPage, currentUser, onLog
             <div
               style={{
                 fontFamily: 'var(--font-serif)',
-                fontSize: '1.25rem',
+                fontSize: 'clamp(0.95rem, 4vw, 1.25rem)',
                 fontWeight: 800,
-                letterSpacing: '0.14em',
+                letterSpacing: '0.08em',
                 color: 'var(--gold-light)',
                 textTransform: 'uppercase',
                 lineHeight: 1.1,
                 textShadow: '0 0 20px rgba(197, 160, 89, 0.25)',
+                whiteSpace: 'nowrap',
               }}
             >
               ADETECH BARBING
@@ -258,8 +259,8 @@ export default function Navbar({ currentPage, setCurrentPage, currentUser, onLog
               />
             </a>
 
-            {/* 3) Gold-Outlined Rectangular Dropdown Button */}
-            <div style={{ position: 'relative' }} ref={dropdownRef}>
+              {/* 3) Gold-Outlined Rectangular Dropdown Button (Desktop/Tablet) */}
+            <div className="desktop-services-dropdown" style={{ position: 'relative' }} ref={dropdownRef}>
               <button
                 onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                 style={{
@@ -429,9 +430,13 @@ export default function Navbar({ currentPage, setCurrentPage, currentUser, onLog
                 background: 'rgba(255,255,255,0.06)',
                 border: '1px solid rgba(197, 160, 89, 0.3)',
                 color: 'var(--gold-light)',
-                padding: '0.5rem',
-                borderRadius: '3px',
+                padding: '0.55rem',
+                borderRadius: '6px',
                 cursor: 'pointer',
+                minWidth: '40px',
+                minHeight: '40px',
+                alignItems: 'center',
+                justifyContent: 'center',
               }}
               aria-label="Toggle menu"
             >
@@ -448,35 +453,94 @@ export default function Navbar({ currentPage, setCurrentPage, currentUser, onLog
             position: 'fixed',
             inset: '74px 0 0 0',
             backgroundColor: 'rgba(7, 13, 30, 0.98)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
+            backdropFilter: 'blur(25px)',
+            WebkitBackdropFilter: 'blur(25px)',
             zIndex: 99,
             display: 'flex',
             flexDirection: 'column',
-            padding: '2rem 1.5rem',
+            padding: '1.5rem 1.25rem 5rem 1.25rem',
             borderTop: '1px solid var(--border-gold)',
+            overflowY: 'auto',
+            WebkitOverflowScrolling: 'touch',
             animation: 'fadeIn 0.25s ease-out',
           }}
         >
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem', marginBottom: '2rem' }}>
+          {/* Member greeting if logged in */}
+          {currentUser && (
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                padding: '0.85rem 1rem',
+                background: 'rgba(197, 160, 89, 0.1)',
+                border: '1px solid var(--border-gold)',
+                borderRadius: 'var(--radius-sm)',
+                marginBottom: '1.25rem',
+              }}
+            >
+              <div
+                style={{
+                  width: 36,
+                  height: 36,
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #c5a059, #886729)',
+                  color: '#070d1e',
+                  fontWeight: 800,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '0.9rem',
+                }}
+              >
+                {currentUser.name ? currentUser.name[0] : 'P'}
+              </div>
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <div style={{ color: '#fff', fontWeight: 700, fontSize: '0.9rem', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                  {currentUser.name}
+                </div>
+                <div style={{ color: 'var(--gold-light)', fontSize: '0.75rem' }}>
+                  {currentUser.role === 'admin' ? 'Master Admin' : `${currentUser.loyaltyPoints || 420} Loyalty Points`}
+                </div>
+              </div>
+              <button
+                onClick={() => handleNavClick('dashboard')}
+                style={{
+                  background: 'transparent',
+                  border: '1px solid var(--border-gold)',
+                  color: 'var(--gold-light)',
+                  padding: '0.3rem 0.65rem',
+                  borderRadius: '4px',
+                  fontSize: '0.75rem',
+                  fontWeight: 700,
+                  cursor: 'pointer',
+                }}
+              >
+                Lounge
+              </button>
+            </div>
+          )}
+
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '1.5rem' }}>
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
                 style={{
-                  background: 'none',
-                  border: 'none',
+                  background: currentPage === item.id ? 'rgba(197, 160, 89, 0.12)' : 'none',
+                  border: currentPage === item.id ? '1px solid var(--border-gold)' : 'none',
+                  borderRadius: 'var(--radius-sm)',
                   textAlign: 'left',
-                  fontSize: '1.25rem',
+                  fontSize: '1.15rem',
                   fontFamily: 'var(--font-serif)',
                   color: currentPage === item.id ? 'var(--gold-light)' : 'var(--text-primary)',
                   fontWeight: currentPage === item.id ? 700 : 500,
                   cursor: 'pointer',
-                  padding: '0.5rem 0',
-                  borderBottom: '1px solid rgba(147, 197, 253, 0.08)',
+                  padding: '0.75rem 1rem',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'space-between',
+                  transition: 'all 0.15s ease',
                 }}
               >
                 <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.6rem' }}>
@@ -507,6 +571,29 @@ export default function Navbar({ currentPage, setCurrentPage, currentUser, onLog
               <Calendar size={18} /> Book Your Chair
             </button>
 
+            <a
+              href="https://wa.me/2349077108987"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                width: '100%',
+                padding: '0.8rem',
+                backgroundColor: 'rgba(16, 185, 129, 0.12)',
+                border: '1px solid rgba(16, 185, 129, 0.35)',
+                color: '#34d399',
+                borderRadius: 'var(--radius-sm)',
+                fontSize: '0.9rem',
+                fontWeight: 600,
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '0.5rem',
+              }}
+            >
+              <PhoneCall size={16} /> WhatsApp: 09077108987
+            </a>
+
             {currentUser && (
               <button
                 onClick={() => {
@@ -515,12 +602,12 @@ export default function Navbar({ currentPage, setCurrentPage, currentUser, onLog
                 }}
                 style={{
                   width: '100%',
-                  padding: '0.85rem',
+                  padding: '0.8rem',
                   backgroundColor: 'rgba(239, 68, 68, 0.1)',
                   border: '1px solid rgba(239, 68, 68, 0.3)',
                   color: '#f87171',
                   borderRadius: 'var(--radius-sm)',
-                  fontSize: '0.95rem',
+                  fontSize: '0.9rem',
                   fontWeight: 600,
                   cursor: 'pointer',
                   display: 'flex',
@@ -536,14 +623,154 @@ export default function Navbar({ currentPage, setCurrentPage, currentUser, onLog
         </div>
       )}
 
-      {/* Responsive Styles for Navbar */}
+      {/* Modern Mobile Bottom Quick-Access Bar (visible on mobile screens <= 768px) */}
+      <div className="mobile-bottom-bar">
+        <button
+          onClick={() => handleNavClick('home')}
+          className={`mobile-bottom-item ${currentPage === 'home' ? 'active' : ''}`}
+          aria-label="Home"
+        >
+          <Scissors size={18} />
+          <span>Home</span>
+        </button>
+
+        <button
+          onClick={() => handleNavClick('services')}
+          className={`mobile-bottom-item ${currentPage === 'services' ? 'active' : ''}`}
+          aria-label="Services"
+        >
+          <Sparkles size={18} />
+          <span>Services</span>
+        </button>
+
+        {/* Center elevated Gold Action Button */}
+        <button
+          onClick={() => handleNavClick('booking')}
+          className="mobile-bottom-center-btn"
+          aria-label="Book appointment"
+        >
+          <div className="center-btn-inner">
+            <Calendar size={20} />
+          </div>
+          <span style={{ fontSize: '0.65rem', fontWeight: 700, color: 'var(--gold-light)', marginTop: '2px' }}>Book</span>
+        </button>
+
+        <button
+          onClick={() => handleNavClick('gallery')}
+          className={`mobile-bottom-item ${currentPage === 'gallery' ? 'active' : ''}`}
+          aria-label="Gallery"
+        >
+          <Award size={18} />
+          <span>Gallery</span>
+        </button>
+
+        <button
+          onClick={() => handleNavClick(currentUser?.role === 'admin' ? 'admin-dashboard' : 'dashboard')}
+          className={`mobile-bottom-item ${currentPage === 'dashboard' || currentPage === 'admin-dashboard' ? 'active' : ''}`}
+          aria-label="Lounge"
+        >
+          {currentUser?.role === 'admin' ? <Crown size={18} color="var(--gold-light)" /> : <Clock size={18} />}
+          <span>{currentUser?.role === 'admin' ? 'Admin' : 'Lounge'}</span>
+        </button>
+      </div>
+
+      {/* Responsive Styles for Navbar and Mobile Bottom Bar */}
       <style>{`
+        .mobile-bottom-bar {
+          display: none;
+        }
+
         @media (max-width: 900px) {
           .desktop-nav {
             display: none !important;
           }
           .mobile-toggle-btn {
             display: inline-flex !important;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .desktop-services-dropdown {
+            display: none !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .mobile-bottom-bar {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 64px;
+            background: rgba(6, 11, 25, 0.96);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(197, 160, 89, 0.3);
+            z-index: 95;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 0.5rem;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.6);
+          }
+
+          .mobile-bottom-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justifyContent: center;
+            background: none;
+            border: none;
+            color: #9cb0d1;
+            font-size: 0.68rem;
+            font-family: var(--font-sans);
+            font-weight: 500;
+            gap: 3px;
+            cursor: pointer;
+            padding: 4px 8px;
+            min-width: 52px;
+            transition: color 0.2s ease;
+          }
+
+          .mobile-bottom-item.active {
+            color: var(--gold-light);
+            font-weight: 700;
+          }
+
+          .mobile-bottom-center-btn {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justifyContent: center;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            top: -12px;
+            padding: 0;
+          }
+
+          .center-btn-inner {
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold-primary) 100%);
+            color: #070d1e;
+            display: flex;
+            align-items: center;
+            justifyContent: center;
+            box-shadow: 0 4px 15px rgba(197, 160, 89, 0.5);
+            border: 2px solid #070d1e;
+            transition: transform 0.2s;
+          }
+
+          .center-btn-inner:active {
+            transform: scale(0.92);
+          }
+
+          /* Ensure page contents don't get covered by mobile bottom bar */
+          body {
+            padding-bottom: 64px;
           }
         }
       `}</style>

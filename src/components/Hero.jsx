@@ -82,7 +82,7 @@ export default function Hero({ onBookNow, onExploreServices }) {
             </p>
 
             {/* CTAs */}
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', marginBottom: '3.5rem' }}>
+            <div className="hero-cta-group" style={{ display: 'flex', flexWrap: 'wrap', gap: '1.25rem', marginBottom: '3.5rem' }}>
               <button
                 onClick={onBookNow}
                 className="btn btn-gold"
@@ -150,6 +150,7 @@ export default function Hero({ onBookNow, onExploreServices }) {
               <img
                 src={heroBarber}
                 alt="Adetech Barbing - Master Craftsman & Head Barber"
+                className="hero-img"
                 style={{
                   width: '100%',
                   height: '500px',
@@ -240,7 +241,7 @@ export default function Hero({ onBookNow, onExploreServices }) {
 
             {/* Floating Guarantee Badge Bottom Left */}
             <div
-              className="glass-card"
+              className="glass-card guarantee-card"
               style={{
                 position: 'absolute',
                 bottom: '-1.5rem',
@@ -263,6 +264,7 @@ export default function Hero({ onBookNow, onExploreServices }) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
+                  flexShrink: 0,
                 }}
               >
                 <ShieldCheck size={18} />
@@ -279,16 +281,45 @@ export default function Hero({ onBookNow, onExploreServices }) {
         @media (max-width: 960px) {
           .hero-grid {
             grid-template-columns: 1fr !important;
-            gap: 3rem !important;
-          }
-          .floating-card {
-            right: 0 !important;
+            gap: 2.5rem !important;
           }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
+          .hero-img {
+            height: 360px !important;
+          }
+          .floating-card {
+            top: -0.75rem !important;
+            right: 0.5rem !important;
+            padding: 0.6rem 0.9rem !important;
+            transform: scale(0.92);
+            transform-origin: top right;
+          }
+          .guarantee-card {
+            bottom: -0.75rem !important;
+            left: 0.5rem !important;
+            padding: 0.6rem 0.9rem !important;
+            max-width: calc(100% - 1rem) !important;
+            transform: scale(0.92);
+            transform-origin: bottom left;
+          }
+        }
+        @media (max-width: 520px) {
           .hero-stats {
-            grid-template-columns: 1fr !important;
-            gap: 1rem !important;
+            grid-template-columns: repeat(3, 1fr) !important;
+            gap: 0.75rem !important;
+          }
+          .hero-stats > div > div:first-child {
+            font-size: 1.35rem !important;
+          }
+          .hero-stats > div > div:last-child {
+            font-size: 0.75rem !important;
+          }
+          .hero-cta-group {
+            flex-direction: column !important;
+          }
+          .hero-cta-group .btn {
+            width: 100% !important;
           }
         }
       `}</style>

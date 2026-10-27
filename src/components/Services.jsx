@@ -134,14 +134,14 @@ export default function Services({ onSelectService, onViewAllServices }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '1.5rem',
           }}
         >
           {filteredServices.map((service) => (
             <div
               key={service.id}
-              className="glass-card"
+              className="glass-card service-card"
               style={{
                 padding: '2rem',
                 display: 'flex',
@@ -220,6 +220,14 @@ export default function Services({ onSelectService, onViewAllServices }) {
           ))}
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 600px) {
+          .service-card {
+            padding: 1.5rem 1.15rem !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

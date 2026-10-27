@@ -84,8 +84,8 @@ export default function Barbers({ onBookWithBarber }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.5rem',
             maxWidth: '1200px',
             margin: '0 auto',
           }}

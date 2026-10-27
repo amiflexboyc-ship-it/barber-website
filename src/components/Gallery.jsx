@@ -141,8 +141,8 @@ export default function Gallery({ onSelectStyle }) {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(290px, 1fr))',
-            gap: '2rem',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+            gap: '1.5rem',
           }}
         >
           {filteredItems.map((item) => (
@@ -159,7 +159,7 @@ export default function Gallery({ onSelectStyle }) {
               }}
               onClick={() => setSelectedImage(item)}
             >
-              <div style={{ position: 'relative', height: '360px', overflow: 'hidden' }}>
+              <div style={{ position: 'relative', height: '340px', overflow: 'hidden' }}>
                 <img
                   src={item.image}
                   alt={item.title}
@@ -258,7 +258,7 @@ export default function Gallery({ onSelectStyle }) {
       {selectedImage && (
         <div className="modal-overlay" onClick={() => setSelectedImage(null)}>
           <div
-            className="glass-card"
+            className="glass-card gallery-modal-card"
             style={{
               maxWidth: '750px',
               width: '100%',
@@ -274,20 +274,21 @@ export default function Gallery({ onSelectStyle }) {
               onClick={() => setSelectedImage(null)}
               style={{
                 position: 'absolute',
-                top: '1rem',
-                right: '1rem',
+                top: '0.75rem',
+                right: '0.75rem',
                 background: 'rgba(0, 0, 0, 0.7)',
                 color: '#fff',
                 border: '1px solid rgba(255, 255, 255, 0.2)',
                 borderRadius: '50%',
-                width: 38,
-                height: 38,
+                width: 36,
+                height: 36,
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 cursor: 'pointer',
                 zIndex: 10,
               }}
+              aria-label="Close image modal"
             >
               <X size={20} />
             </button>
@@ -295,10 +296,11 @@ export default function Gallery({ onSelectStyle }) {
             <img
               src={selectedImage.image}
               alt={selectedImage.title}
-              style={{ width: '100%', maxHeight: '480px', objectFit: 'cover', display: 'block' }}
+              className="gallery-modal-img"
+              style={{ width: '100%', maxHeight: '450px', objectFit: 'cover', display: 'block' }}
             />
 
-            <div style={{ padding: '2rem' }}>
+            <div className="gallery-modal-body" style={{ padding: '2rem' }}>
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.75rem', flexWrap: 'wrap', gap: '0.5rem' }}>
                 <span style={{ fontSize: '0.85rem', color: 'var(--gold-light)', textTransform: 'uppercase', letterSpacing: '0.1em', fontWeight: 700 }}>
                   Crafted by {selectedImage.barber}
@@ -313,15 +315,15 @@ export default function Gallery({ onSelectStyle }) {
                 </div>
               </div>
 
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 800, marginBottom: '0.75rem', fontFamily: 'var(--font-serif)' }}>
+              <h3 style={{ fontSize: '1.4rem', fontWeight: 800, marginBottom: '0.75rem', fontFamily: 'var(--font-serif)' }}>
                 {selectedImage.title}
               </h3>
 
-              <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
+              <p style={{ color: 'var(--text-secondary)', fontSize: '0.92rem', lineHeight: 1.6, marginBottom: '1.5rem' }}>
                 {selectedImage.description}
               </p>
 
-              <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
+              <div className="gallery-modal-actions" style={{ display: 'flex', gap: '0.85rem', justifyContent: 'flex-end' }}>
                 <button
                   onClick={() => setSelectedImage(null)}
                   className="btn btn-ghost"
@@ -343,6 +345,23 @@ export default function Gallery({ onSelectStyle }) {
           </div>
         </div>
       )}
+
+      <style>{`
+        @media (max-width: 600px) {
+          .gallery-modal-body {
+            padding: 1.25rem 1rem !important;
+          }
+          .gallery-modal-img {
+            max-height: 260px !important;
+          }
+          .gallery-modal-actions {
+            flex-direction: column-reverse !important;
+          }
+          .gallery-modal-actions .btn {
+            width: 100% !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

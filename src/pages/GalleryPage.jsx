@@ -18,20 +18,20 @@ export default function GalleryPage({ onNavigate, onSelectStyle }) {
 
         {/* Callout Card */}
         <div
-          className="glass-card"
+          className="glass-card gallery-callout-card"
           style={{
-            marginTop: '5rem',
-            padding: '3rem',
+            marginTop: '4rem',
+            padding: '3rem 2rem',
             textAlign: 'center',
             border: '1.5px solid var(--border-gold)',
             background: 'linear-gradient(135deg, rgba(22, 25, 34, 0.9) 0%, rgba(14, 16, 22, 0.95) 100%)',
           }}
         >
           <Sparkles size={32} color="var(--gold-light)" style={{ margin: '0 auto 1rem auto' }} />
-          <h3 style={{ fontSize: '1.8rem', fontFamily: 'var(--font-serif)', fontWeight: 800, marginBottom: '0.75rem', color: '#fff' }}>
+          <h3 style={{ fontSize: 'clamp(1.4rem, 4vw, 1.8rem)', fontFamily: 'var(--font-serif)', fontWeight: 800, marginBottom: '0.75rem', color: '#fff' }}>
             Have a Specific Reference Style in Mind?
           </h3>
-          <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 2rem auto', fontSize: '1rem', lineHeight: 1.6 }}>
+          <p style={{ color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 2rem auto', fontSize: '0.95rem', lineHeight: 1.6 }}>
             Bring your favorite photo or let our master barbers analyze your hair growth direction, bone architecture,
             and daily styling routine during your consultation.
           </p>
@@ -47,6 +47,17 @@ export default function GalleryPage({ onNavigate, onSelectStyle }) {
           </button>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 600px) {
+          .gallery-callout-card {
+            padding: 1.75rem 1.15rem !important;
+          }
+          .gallery-callout-card .btn {
+            width: 100% !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

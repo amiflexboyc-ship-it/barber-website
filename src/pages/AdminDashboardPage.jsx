@@ -332,7 +332,7 @@ export default function AdminDashboardPage({ currentUser, onNavigate, onLogout }
 
         {/* Master Admin Header */}
         <div
-          className="glass-card"
+          className="glass-card admin-header-card"
           style={{
             padding: '1.75rem 2.25rem',
             borderRadius: 'var(--radius-lg)',
@@ -425,6 +425,7 @@ export default function AdminDashboardPage({ currentUser, onNavigate, onLogout }
 
         {/* Executive KPI Stats Bar */}
         <div
+          className="admin-kpi-grid"
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(190px, 1fr))',
@@ -1915,6 +1916,23 @@ export default function AdminDashboardPage({ currentUser, onNavigate, onLogout }
           </div>
         </div>
       )}
+      {/* Mobile Responsive Admin Styles */}
+      <style>{`
+        @media (max-width: 768px) {
+          .admin-header-card {
+            padding: 1.25rem 1rem !important;
+          }
+          .admin-kpi-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+            gap: 0.85rem !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .admin-kpi-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
